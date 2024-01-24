@@ -2,7 +2,6 @@ let basket = JSON.parse(localStorage.getItem('data')) || []
 const label = document.querySelector('#label')
 const shoppingCart = document.querySelector('#shopping-cart')
 
-console.log(basket)
 basketQuantityUpdate()
 
 function basketQuantityUpdate() {
@@ -135,13 +134,12 @@ function removeItem(id) {
 }
 
 function totalAmount() {
-    if (basket !== 0) {
+    if (basket.length !== 0) {
         let amount = basket.map(elem => {
             let { item, id } = elem
             let search = shopItemsData.find((shopElem) => shopElem.id === id) || []
             return item * search.price
         }).reduce((acc, sum) => acc + sum, 0)
-        console.log(amount)
         // <button class="checkout">Checkout</button>
         label.innerHTML = `
         <h2>Total Amount: ${amount}</h2>
