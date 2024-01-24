@@ -4,7 +4,7 @@ const shop = document.querySelector('#shop')
 let basket = JSON.parse(localStorage.getItem('data')) || []
 
 function generateShop() {
-    shop.innerHTML = shopItemsData.map((elem) => {
+    shop.innerHTML += shopItemsData.map((elem) => {
         let { id, name, price, desc, imgSrc } = elem
         let search = basket.find(elem => elem.id === id) || []
         

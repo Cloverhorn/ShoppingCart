@@ -1,6 +1,7 @@
 let basket = JSON.parse(localStorage.getItem('data')) || []
 const label = document.querySelector('#label')
 const shoppingCart = document.querySelector('#shopping-cart')
+const cartContainer = document.querySelector('.cart-container')
 
 basketQuantityUpdate()
 
@@ -44,7 +45,7 @@ function generateCartItems() {
         }).join("")
     }
     else {
-        shoppingCart.innerHTML = ``
+        // shoppingCart.innerHTML = `
         label.innerHTML = `
         <h2>Cart is Empty</h2>
         <a href="index.html">
@@ -141,9 +142,10 @@ function totalAmount() {
             return item * search.price
         }).reduce((acc, sum) => acc + sum, 0)
         // <button class="checkout">Checkout</button>
+        // cartContainer.innerHTML += `
         label.innerHTML = `
         <h2>Total Amount: ${amount}</h2>
-        <button onclick="clearCart()" class="removeAll">Clear Cart</button>
+        <button onclick="clearCart()" class="removeAll">Empty Cart</button>
         `
     } else return
 }
