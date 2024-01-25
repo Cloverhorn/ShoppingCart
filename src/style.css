@@ -38,15 +38,16 @@ body {
     .navbar__header {
         color: white;
     }
-
-    .navbar__menu {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: 30px;
-        text-transform: uppercase;
-    }
 }
+
+.navbar__menu {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+    text-transform: uppercase;
+}
+
 
 
 .cart {
@@ -56,12 +57,10 @@ body {
     padding: 5px;
     font-size: 30px;
     border-radius: 4px;
-    position: relative;
     cursor: pointer;
-
     position: fixed;
-    bottom: 20px;
-    right: 20px;
+    right: calc(50% - 600px);
+    bottom: 10px;
 }
 
 
@@ -193,6 +192,7 @@ body {
     border-radius: 5px;
     display: flex;
     gap: 5px;
+
     h4 {
         font-family: 'Roboto', sans-serif;
         font-weight: 500;
@@ -250,33 +250,54 @@ body {
     }
 }
 
-@media (max-width: 1120px) {
+@media (max-width: 1200px) {
     .shop {
         grid-template-columns: repeat(2, 300px);
     }
+
     .shop__details {
         height: auto;
+    }
+
+    .cart {
+        right: calc(50% - 380px);
     }
 }
 
 @media (max-width: 1080px) {
-    .shopping-cart {        
+    .shopping-cart {
         grid-template-columns: repeat(1, 400px);
     }
 }
 
-@media (max-width: 680px) {
+@media (max-width: 780px) {
     .shop {
         grid-template-columns: repeat(1, 400px);
     }
+
+    .cart {
+        right: calc(50% - 270px);
+    }
+}
+
+@media (max-width: 680px) {
     .shopping-cart {
         grid-template-columns: repeat(1, 300px);
     }
+
     .title-price {
         width: 160px;
         font-size: 14px;
         align-items: start;
         flex-direction: column;
+    }
+
+    .navbar__menu {
+        display: none;
+    }
+
+    .navbar {
+        justify-content: center;
     }
 }
 
@@ -284,7 +305,16 @@ body {
     .cart-container {
         display: block;
     }
+
     .text-center {
         margin-top: 20px;
+    }
+
+    .cart {
+        right: 1%;
+    }
+    
+    .shop {
+        grid-template-columns: repeat(1, 80%);
     }
 }
